@@ -1,5 +1,7 @@
 import type { Arguments, CommandBuilder } from "yargs";
 
+const chalk = require("chalk");
+
 import { formatNumber } from "../utils/formatNumber";
 import { translateNumber } from "../utils/translateNumber";
 import { validateNumber } from "../utils/validateNumber";
@@ -21,13 +23,19 @@ export const handler = (argv: Arguments<Options>): void => {
     process.stdout.write(translation);
     const translatedNumber = translateNumber(number);
     const formattedNumber = formatNumber(translatedNumber);
-    process.stdout.write(`For ${number}, please dial: ${formattedNumber}`);
+    process.stdout.write(
+      chalk.green(`For ${number}, please dial: ${formattedNumber}`)
+    );
     process.exit(0);
   } else {
     process.stdout.write(
-      `The number ${number} is not a valid number to translate. \n`
+      chalk.yellow(
+        `The number ${number} is not a valid number to translate. \n`
+      )
     );
-    process.stdout.write(`Please enter a valid number to translate.`);
+    process.stdout.write(
+      chalk.yellow(`Please enter a valid number to translate.`)
+    );
     process.exit(0);
   }
 };
