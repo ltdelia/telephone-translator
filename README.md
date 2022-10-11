@@ -32,14 +32,4 @@ Once compiled, you can then run the following commands:
 
 This command translates a number from alphanumeric to numeric, where `<number>` is the alphanumeric number to translate.
 
-> If installed globally, you can run all script commands prefixed by `translator` instead of `npm run`. For example:
->
-```
-npm run translate <number>
-```
->
-becomes
->
-```
-translator translate <number>
-```
+> If installed globally, you can run all script commands prefixed by `translator`, i.e. `translator translate <number>`
